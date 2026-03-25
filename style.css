@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    height: 1000vh;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+#displayImage {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0 0 0.75rem rgb(228, 228, 228));
+    z-index: 9;
+}
+
+.box {
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 15vw;
+    margin: 20px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0px 0px 9px 5px rgb(201, 200, 200);
+    text-align: center;
+    font-size: 1.5vw;
+    padding: 1.4vw;
+    font-family: Sans-serif;
+    color: rgb(0, 0, 24);
+    scroll-snap-align: start;
+}
+
+
+
+@keyframes appearFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-50px);
+    }
+}
+
+
+
+@keyframes appearFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  }
+
+
+.L {
+    animation: appearFromLeft linear;
+    animation-timeline: view();
+    /* animation-range: entry 0% cover 40%; */
+}
+
+.R {
+    animation: appearFromRight linear;
+    animation-timeline: view();
+    /* animation-range: entry 0% cover 40%; */
+}
